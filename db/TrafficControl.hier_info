@@ -1,0 +1,122 @@
+|DUT
+input_vector[0] => trafficcontroller:add_instance.clk
+input_vector[1] => trafficcontroller:add_instance.rst
+output_vector[0] << trafficcontroller:add_instance.y[0]
+output_vector[1] << trafficcontroller:add_instance.y[1]
+output_vector[2] << trafficcontroller:add_instance.y[2]
+output_vector[3] << trafficcontroller:add_instance.y[3]
+output_vector[4] << trafficcontroller:add_instance.y[4]
+output_vector[5] << trafficcontroller:add_instance.y[5]
+output_vector[6] << trafficcontroller:add_instance.y[6]
+output_vector[7] << trafficcontroller:add_instance.y[7]
+
+
+|DUT|trafficcontroller:add_instance
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+rst => count[0].ACLR
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].ACLR
+rst => count[4].ACLR
+y[0] <= encoder4x2:north.Y[0]
+y[1] <= encoder4x2:north.Y[1]
+y[2] <= encoder4x2:east.Y[0]
+y[3] <= encoder4x2:east.Y[1]
+y[4] <= encoder4x2:south.Y[0]
+y[5] <= encoder4x2:south.Y[1]
+y[6] <= encoder4x2:west.Y[0]
+y[7] <= encoder4x2:west.Y[1]
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:north
+A[0] => ~NO_FANOUT~
+A[1] => OR_2:i1.B
+A[2] => OR_2:i2.B
+A[3] => OR_2:i1.A
+A[3] => OR_2:i2.A
+Y[0] <= OR_2:i1.Y
+Y[1] <= OR_2:i2.Y
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:north|OR_2:i1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:north|OR_2:i2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:east
+A[0] => ~NO_FANOUT~
+A[1] => OR_2:i1.B
+A[2] => OR_2:i2.B
+A[3] => OR_2:i1.A
+A[3] => OR_2:i2.A
+Y[0] <= OR_2:i1.Y
+Y[1] <= OR_2:i2.Y
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:east|OR_2:i1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:east|OR_2:i2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:south
+A[0] => ~NO_FANOUT~
+A[1] => OR_2:i1.B
+A[2] => OR_2:i2.B
+A[3] => OR_2:i1.A
+A[3] => OR_2:i2.A
+Y[0] <= OR_2:i1.Y
+Y[1] <= OR_2:i2.Y
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:south|OR_2:i1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:south|OR_2:i2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:west
+A[0] => ~NO_FANOUT~
+A[1] => OR_2:i1.B
+A[2] => OR_2:i2.B
+A[3] => OR_2:i1.A
+A[3] => OR_2:i2.A
+Y[0] <= OR_2:i1.Y
+Y[1] <= OR_2:i2.Y
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:west|OR_2:i1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DUT|trafficcontroller:add_instance|encoder4x2:west|OR_2:i2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
